@@ -9,7 +9,7 @@ function App() {
   const [formData, setFormData] = useState({ name: '', email: '', department: '', salary: '' });
   const [editingId, setEditingId] = useState(null);
   const [search, setSearch] = useState('');
-  
+
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState({ type: '', text: '' });
 
@@ -79,7 +79,7 @@ function App() {
   return (
     <div className="container">
       <h2>Employee Management</h2>
-      
+
       {message.text && <div className={`message ${message.type}`}>{message.text}</div>}
 
       <form onSubmit={handleSubmit}>
@@ -90,8 +90,8 @@ function App() {
         <div className="form-actions">
           <button type="submit">{editingId ? 'Update Employee' : 'Add Employee'}</button>
           {editingId && (
-            <button 
-              type="button" 
+            <button
+              type="button"
               className="cancel-btn"
               onClick={() => { setEditingId(null); setFormData({ name: '', email: '', department: '', salary: '' }); }}
             >
@@ -101,11 +101,11 @@ function App() {
         </div>
       </form>
 
-      <input 
-        className="search-bar" 
-        placeholder="Search by name, email, or department..." 
-        value={search} 
-        onChange={(e) => setSearch(e.target.value)} 
+      <input
+        className="search-bar"
+        placeholder="Search by name, email, or department..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
       />
 
       {loading ? <p className="no-data">Loading employees...</p> : (
